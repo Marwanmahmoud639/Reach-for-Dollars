@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build:netlify"
+  publish = "dist/client"
+
+[functions]
+  node_bundler = "esbuild"
+  # Bundle the built SSR server alongside the function.
+  included_files = ["dist/server/**"]
+
+# Static assets in dist/client are served directly. Anything that doesn't
+# match a static file falls through to the SSR / server-functions handler.
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200
