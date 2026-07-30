@@ -1,0 +1,8 @@
+project_id = "fbcatqdtzcowhrkzclno"
+
+# Twilio opens the media stream itself and cannot present a Supabase JWT, so
+# this function must accept unauthenticated upgrades. Access is gated instead on
+# the `session` query parameter: an unguessable uuid looked up in
+# ai_call_sessions, with the socket closed immediately when it doesn't resolve.
+[functions.ai-call-bridge]
+verify_jwt = false

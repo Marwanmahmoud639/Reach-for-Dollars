@@ -1,0 +1,1 @@
+ALTER TABLE public.teams ADD COLUMN IF NOT EXISTS discovery_monthly_limit integer NOT NULL DEFAULT 1000;
